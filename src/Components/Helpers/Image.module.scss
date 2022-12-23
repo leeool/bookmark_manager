@@ -1,0 +1,27 @@
+.placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    90deg,
+    var(--gelo-escuro) 0px,
+    var(--gelo) 50%,
+    var(--gelo-escuro) 100%
+  );
+  background-size: 200%;
+  z-index: 1000;
+  animation: placeholder 2s linear infinite;
+}
+
+img {
+  opacity: 1;
+}
+
+@keyframes placeholder {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 200%;
+  }
+}

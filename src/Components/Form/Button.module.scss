@@ -1,0 +1,9 @@
+.button {
+  padding: 1rem 0.8rem;
+  border-radius: 0.4rem;
+  background-color: var(--gelo);
+
+  &:hover {
+    background-color: var(--gelo-escuro);
+  }
+}

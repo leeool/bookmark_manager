@@ -1,0 +1,32 @@
+.bookmarkCreate {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+
+  h1 {
+    grid-column: 1;
+    margin-bottom: 1.8rem;
+  }
+
+  .form {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .cardPreview {
+    grid-column: 2;
+  }
+
+  .cards {
+    grid-column: 1 / -1;
+    // overflow-y: scroll;
+    // height: 40rem;
+    ul {
+      display: flex;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+  }
+}

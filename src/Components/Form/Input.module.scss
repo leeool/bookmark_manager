@@ -1,0 +1,16 @@
+.input {
+  label {
+    margin-bottom: 0.8rem;
+  }
+
+  input {
+    background-color: var(--gelo);
+    padding: 1rem;
+    border-radius: 0.4rem;
+    width: 100%;
+
+    &:hover {
+      background-color: var(--gelo-escuro);
+    }
+  }
+}
