@@ -1,6 +1,7 @@
 .input {
   label {
     margin-bottom: 0.8rem;
+    font-size: 2rem;
   }
 
   input {
@@ -8,8 +9,11 @@
     padding: 1rem;
     border-radius: 0.4rem;
     width: 100%;
+    border: 1px solid transparent;
+    transition: 0.2s ease;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--gelo-escuro);
     }
   }

@@ -1,4 +1,5 @@
 import React from "react"
+import Error from "../Helpers/Error"
 import styles from "./Input.module.scss"
 
 const Input = ({
@@ -23,7 +24,7 @@ const Input = ({
         onBlur={onBlur}
         {...props}
       />
-      {error && <p>{error}</p>}
+      <Error error={error} />
     </div>
   )
 }

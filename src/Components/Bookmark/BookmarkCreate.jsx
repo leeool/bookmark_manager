@@ -13,7 +13,8 @@ const BookmarkCreate = () => {
   const name = UseForm()
   const url = UseForm("url")
   const desc = UseForm(false)
-  const { saveBookmark, bookmarks } = React.useContext(BookmarkContext)
+  const { saveBookmark, bookmarks, recentBookmark } =
+    React.useContext(BookmarkContext)
   const [debouncedUrl, setDebouncedUrl] = React.useState("")
 
   const handleSubmit = (e) => {
@@ -42,7 +43,7 @@ const BookmarkCreate = () => {
           type="text"
           id="criar"
           placeholder="Receita de Pizza"
-          maxlength="25"
+          maxLength="25"
           required
           {...name}
         />
@@ -59,7 +60,7 @@ const BookmarkCreate = () => {
           type="text"
           id="desc"
           placeholder="Uma excelente receita de pizza"
-          maxlength="40"
+          maxLength="40"
           {...desc}
         />
         <div>
@@ -78,7 +79,7 @@ const BookmarkCreate = () => {
         />
       </div>
       <div className={styles.cards}>
-        <BookmarkList bookmarks={bookmarks} />
+        <BookmarkList bookmarks={recentBookmark} />
       </div>
     </div>
   )

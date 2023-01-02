@@ -22,18 +22,6 @@
   .cards {
     grid-column: 1 / -1;
     margin-top: 2.4rem;
-
-    ul {
-      display: flex;
-      gap: 1.6rem;
-      flex-wrap: wrap;
-      justify-content: center;
-
-      li {
-        min-width: 50rem;
-        max-width: 50rem;
-      }
-    }
   }
 
   input[type="file"] {

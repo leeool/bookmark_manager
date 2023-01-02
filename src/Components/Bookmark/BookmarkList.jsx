@@ -1,11 +1,12 @@
 import React from "react"
 import BookmarkItem from "./BookmarkItem"
+import styles from "./BookmarkList.module.scss"
 
 const BookmarkList = ({ bookmarks }) => {
   console.log("🚀 => BookmarkList => bookmarks", bookmarks)
   if (!bookmarks) return null
   return (
-    <ul>
+    <ul className={styles.list}>
       {bookmarks.map(({ name, url, desc }) => (
         <BookmarkItem key={name} name={name} url={url} desc={desc} />
       ))}
