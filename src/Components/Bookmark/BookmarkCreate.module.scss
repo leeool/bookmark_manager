@@ -21,12 +21,39 @@
 
   .cards {
     grid-column: 1 / -1;
-    // overflow-y: scroll;
-    // height: 40rem;
+    margin-top: 2.4rem;
+
     ul {
       display: flex;
       gap: 1.6rem;
       flex-wrap: wrap;
+      justify-content: center;
+
+      li {
+        min-width: 50rem;
+        max-width: 50rem;
+      }
     }
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .imageUpload {
+    font-size: 1.4rem;
+    padding: 1rem;
+    color: rgba(0, 0, 0, 0.5);
+    border: 0.3rem var(--gelo) dashed;
+    cursor: pointer;
+    border-radius: 0.8rem;
+
+    &:hover {
+      border-color: var(--gelo-escuro);
+    }
+  }
+
+  button {
+    margin-top: 1.6rem;
   }
 }

@@ -42,6 +42,7 @@ const BookmarkCreate = () => {
           type="text"
           id="criar"
           placeholder="Receita de Pizza"
+          maxlength="25"
           required
           {...name}
         />
@@ -49,7 +50,7 @@ const BookmarkCreate = () => {
           label={"URL"}
           type="link"
           id="link"
-          placeholder="https://exemplo.com"
+          placeholder="https://exemplo.com/pizza-gostosa"
           required
           {...url}
         />
@@ -58,11 +59,14 @@ const BookmarkCreate = () => {
           type="text"
           id="desc"
           placeholder="Uma excelente receita de pizza"
+          maxlength="40"
           {...desc}
         />
         <div>
-          <label htmlFor="file">Imagem (opcional)</label>
-          <input type="file" id="file" />
+          <label htmlFor="file" className={styles.imageUpload}>
+            Selecione uma imagem (opcional)
+            <input type="file" id="file" hidden />
+          </label>
         </div>
         <Button children={"Salvar"} />
       </form>
@@ -70,7 +74,7 @@ const BookmarkCreate = () => {
         <Card
           name={name.value.trim()}
           url={debouncedUrl}
-          desc={desc.value.trim()}
+          desc={desc.value.trim() || "Descrição do bookmark"}
         />
       </div>
       <div className={styles.cards}>

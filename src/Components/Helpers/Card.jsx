@@ -11,7 +11,7 @@ const Card = ({ name, url, desc }) => {
         </div>
         <div className={styles.cardInfo}>
           <h2>{name.length > 0 ? name : "Nome do Bookmark"}</h2>
-          <p>{desc.length > 0 ? desc : "Descrição do Bookmark"}</p>
+          {desc.length > 0 && <p>{desc}</p>}
         </div>
       </a>
     </div>
