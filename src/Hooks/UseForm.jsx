@@ -15,12 +15,10 @@ const UseForm = (type) => {
   const validate = (value) => {
     if (type === false) return true
     else if (value.length === 0) {
-      console.log("Preencha este campo")
       setError("Preencha este campo")
       return false
     } else if (type && types[type] && !types[type].regex.test(value)) {
       setError(types[type].message)
-      console.log(error)
       return false
     } else {
       setError(null)

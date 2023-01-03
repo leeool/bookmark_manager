@@ -1,7 +1,6 @@
 .menu {
   background-color: #eee;
   box-shadow: 5px 0px 0px 0px #ddd;
-  height: 100vh;
   padding: 1.6rem 0;
   h1 {
     font-size: 3.6rem;
@@ -13,6 +12,11 @@
 .menuNav {
   display: flex;
   flex-direction: column;
+  min-height: 92vh;
+
+  .menu1 {
+    flex: 1;
+  }
 
   a {
     display: flex;
@@ -39,5 +43,19 @@
     path {
       fill: #212121;
     }
+  }
+
+  .menu2:hover svg,
+  .menu2 :global(.active) svg {
+    animation: girarConfig 2s infinite linear;
+  }
+}
+
+@keyframes girarConfig {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
   }
 }

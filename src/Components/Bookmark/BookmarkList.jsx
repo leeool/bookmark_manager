@@ -3,7 +3,6 @@ import BookmarkItem from "./BookmarkItem"
 import styles from "./BookmarkList.module.scss"
 
 const BookmarkList = ({ bookmarks }) => {
-  console.log("🚀 => BookmarkList => bookmarks", bookmarks)
   if (!bookmarks) return null
   return (
     <ul className={styles.list}>
