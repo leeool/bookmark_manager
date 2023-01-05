@@ -1,13 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
 
 .app {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
   font-size: 1.6rem;
   font-family: "Outfit", sans-serif;
+  overflow-y: auto;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  @media screen and (width <= 1000px) {
+    grid-template-columns: 1fr;
+  }
 
-  .content {
-    overflow-y: auto;
-    height: 100vh;
+  .pages {
+    overflow: scroll;
+    // grid-template-rows: 1fr;
   }
 }

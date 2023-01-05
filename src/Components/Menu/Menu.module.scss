@@ -1,21 +1,7 @@
-.menu {
-  background-color: #eee;
-  box-shadow: 5px 0px 0px 0px #ddd;
-  padding: 1.6rem 0;
-  h1 {
-    font-size: 3.6rem;
-    text-align: center;
-    margin-bottom: 1.6rem;
-  }
-}
-
-.menuNav {
-  display: flex;
-  flex-direction: column;
-  min-height: 92vh;
-
-  .menu1 {
-    flex: 1;
+@mixin menu-items-style {
+  .menu2:hover svg,
+  .menu2 :global(.active) svg {
+    animation: girarConfig 2s infinite linear;
   }
 
   a {
@@ -24,30 +10,116 @@
     gap: 1rem;
     width: 100%;
     height: 5rem;
-    padding: 0 1rem;
+    padding: 0 1.6rem;
     font-size: 1.8rem;
 
     &:hover {
       background-color: var(--gelo-escuro);
     }
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+
+      path {
+        fill: #212121;
+      }
+    }
+
+    &:global(.active) {
+      background-color: var(--gelo-escuro-plus) !important;
+    }
   }
+}
 
-  :global(.active) {
-    background-color: var(--gelo-escuro);
-  }
+.mobileHeader {
+  padding: 0.8rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  box-shadow: 0px 0.3rem 0px 0px var(--gelo-escuro-plus);
+  height: 10rem;
 
-  svg {
-    width: 2rem;
-    height: 2rem;
+  .btn {
+    padding: 0px;
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--gelo);
+    display: block;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    path {
-      fill: #212121;
+    &:hover,
+    &:focus {
+      background-color: var(--gelo-escuro);
     }
   }
 
-  .menu2:hover svg,
-  .menu2 :global(.active) svg {
-    animation: girarConfig 2s infinite linear;
+  .btn::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 0.3rem;
+    border-radius: 1rem;
+    background-color: #212121;
+    box-shadow: 0px 0.8rem 0px 0px #212121, 0px -0.8rem 0px 0px #212121;
+  }
+}
+
+.mobileMenu {
+  position: relative;
+  max-height: 100%;
+
+  .menuNav {
+    z-index: 10;
+    background-color: #eee;
+    border-radius: 0.4rem;
+    position: absolute;
+    left: -100%;
+    transition: 0.3s ease;
+    @include menu-items-style();
+  }
+
+  &.mobileMenuActive .menuNav {
+    left: 0;
+  }
+}
+
+.menu {
+  background-color: var(--gelo);
+  box-shadow: 0.3rem 0px 0px 0px var(--gelo-escuro-plus);
+
+  h1 {
+    font-size: 3.6rem;
+    text-align: center;
+    margin: 1.6rem 0;
+  }
+  .menuNav {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .menu1 {
+      flex: 1;
+    }
+
+    @include menu-items-style();
+    a {
+      &:global(.active) {
+        svg,
+        p {
+          transition: 0.2s ease;
+        }
+
+        svg,
+        p {
+          translate: 1.6rem;
+        }
+      }
+    }
   }
 }
 

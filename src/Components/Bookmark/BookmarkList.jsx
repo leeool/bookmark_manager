@@ -6,8 +6,8 @@ const BookmarkList = ({ bookmarks }) => {
   if (!bookmarks) return null
   return (
     <ul className={styles.list}>
-      {bookmarks.map(({ name, url, desc }) => (
-        <BookmarkItem key={name} name={name} url={url} desc={desc} />
+      {bookmarks.map(({ name, url, desc }, index) => (
+        <BookmarkItem key={index} name={name} url={url} desc={desc} />
       ))}
     </ul>
   )

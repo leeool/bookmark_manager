@@ -5,33 +5,61 @@ import { ReactComponent as Plus } from "../../assets/images/plus-solid.svg"
 import { ReactComponent as Mark } from "../../assets/images/bookmark-solid.svg"
 import { ReactComponent as Home } from "../../assets/images/house-solid.svg"
 import { ReactComponent as Settings } from "../../assets/images/gear-solid.svg"
+import MainTitle from "../Text/MainTitle"
+import { useLocation } from "react-router-dom"
 
-export const Menu = () => {
+const Menu = ({ mobile }) => {
+  const [mobileMenu, setMobileMenu] = React.useState(false)
+  const location = useLocation()
+
+  const handleClick = (e) => {
+    setMobileMenu((prev) => !prev)
+  }
+
+  React.useEffect(() => {
+    setMobileMenu(false)
+  }, [location])
+
   return (
-    <section className={`${styles.menu}`}>
-      <h1>Bookmark Handle</h1>
-      <div className={styles.menuNav}>
-        <div className={styles.menu1}>
-          <NavLink end to={"/"}>
-            <Home />
-            <p children={"Início"} />
-          </NavLink>
-          <NavLink to={"/editar"}>
-            <Mark />
-            <p children={"Meus Bookmarks"} />
-          </NavLink>
-          <NavLink to={"/criar"}>
-            <Plus />
-            <p children={"Criar Bookmark"} />
-          </NavLink>
+    <div>
+      {mobile && (
+        <div className={`${styles.mobileHeader}`}>
+          <button className={styles.btn} onClick={handleClick}></button>
+          <MainTitle children={"Bookmark Handle"} />
         </div>
-        <div className={styles.menu2}>
-          <NavLink to={"/config"}>
-            <Settings />
-            <p children={"Configurações"} />
-          </NavLink>
+      )}
+
+      <section
+        className={` ${mobile ? styles.mobileMenu : styles.menu} ${
+          mobileMenu && styles.mobileMenuActive
+        }`}
+      >
+        <div className={styles.menuNav}>
+          {!mobile && <MainTitle children={"Bookmark Handle"} />}
+          <div className={styles.menu1}>
+            <NavLink end to={"/"}>
+              <Home />
+              <p children={"Início"} />
+            </NavLink>
+            <NavLink to={"/editar"}>
+              <Mark />
+              <p children={"Meus Bookmarks"} />
+            </NavLink>
+            <NavLink to={"/criar"}>
+              <Plus />
+              <p children={"Criar Bookmark"} />
+            </NavLink>
+          </div>
+          <div className={styles.menu2}>
+            <NavLink to={"/config"}>
+              <Settings />
+              <p children={"Configurações"} />
+            </NavLink>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }
+
+export default Menu
