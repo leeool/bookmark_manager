@@ -1,9 +1,9 @@
 import React from "react"
-import { BookmarkContext } from "../../BookmarkContext"
-import BookmarkList from "../Bookmark/BookmarkList"
-import SearchBookmark from "../Helpers/SearchBookmark"
-import MainTitle from "../Text/MainTitle"
 import styles from "./Feed.module.scss"
+import MainTitle from "../Text/MainTitle"
+import SearchBookmark from "../Helpers/SearchBookmark"
+import BookmarkList from "../Bookmark/BookmarkList"
+import { BookmarkContext } from "../../context/BookmarkContext"
 
 const Feed = () => {
   const [search, setSearch] = React.useState("")

@@ -3,7 +3,7 @@ import styles from "./Image.module.scss"
 
 const link = "https://www.google.com/s2/favicons?sz=256&domain_url="
 
-const Image = ({ src }) => {
+const Image = ({ src }: { src: string }) => {
   return (
     <>
       {src ? (

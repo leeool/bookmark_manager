@@ -1,6 +1,15 @@
-import React from "react"
+import React, { ChangeEvent } from "react"
 
-const types = {
+type TypesData = {
+  regex: RegExp
+  message: string
+}
+
+interface Types {
+  [key: string]: TypesData
+}
+
+const types: Types = {
   url: {
     regex:
       /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
@@ -8,12 +17,12 @@ const types = {
   }
 }
 
-const UseForm = (type) => {
-  const [value, setValue] = React.useState("")
-  const [error, setError] = React.useState(null)
+const UseForm = (type: string | null) => {
+  const [value, setValue] = React.useState<string>("")
+  const [error, setError] = React.useState<string | null>(null)
 
-  const validate = (value) => {
-    if (type === false) return true
+  const validate = (value: string) => {
+    if (!type) return true
     else if (value.length === 0) {
       setError("Preencha este campo")
       return false
@@ -26,7 +35,9 @@ const UseForm = (type) => {
     }
   }
 
-  const onChange = ({ target }) => {
+  type Target = HTMLInputElement | HTMLTextAreaElement
+
+  const onChange = ({ target }: { target: EventTarget & Target }) => {
     if (error) validate(target.value)
     setValue(target.value)
     setError(null)

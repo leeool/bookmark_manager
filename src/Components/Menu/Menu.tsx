@@ -5,14 +5,14 @@ import { ReactComponent as Plus } from "../../assets/images/plus-solid.svg"
 import { ReactComponent as Mark } from "../../assets/images/bookmark-solid.svg"
 import { ReactComponent as Home } from "../../assets/images/house-solid.svg"
 import { ReactComponent as Settings } from "../../assets/images/gear-solid.svg"
-import MainTitle from "../Text/MainTitle"
 import { useLocation } from "react-router-dom"
+import MainTitle from "../Text/MainTitle"
 
-const Menu = ({ mobile }) => {
+const Menu = ({ mobile }: { mobile: boolean | null }) => {
   const [mobileMenu, setMobileMenu] = React.useState(false)
   const location = useLocation()
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     setMobileMenu((prev) => !prev)
   }
 

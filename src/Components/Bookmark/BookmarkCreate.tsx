@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FormEvent } from "react"
 import UseForm from "../../Hooks/UseForm"
 import Button from "../Form/Button"
 import Input from "../Form/Input"
@@ -6,18 +6,17 @@ import Card from "../Helpers/Card"
 import MainTitle from "../Text/MainTitle"
 import styles from "./BookmarkCreate.module.scss"
 import debounce from "lodash.debounce"
-import { BookmarkContext } from "../../BookmarkContext"
 import BookmarkList from "./BookmarkList"
+import { BookmarkContext } from "../../context/BookmarkContext"
 
 const BookmarkCreate = () => {
-  const name = UseForm()
+  const name = UseForm(null)
   const url = UseForm("url")
-  const desc = UseForm(false)
-  const { saveBookmark, bookmarks, recentBookmark } =
-    React.useContext(BookmarkContext)
-  const [debouncedUrl, setDebouncedUrl] = React.useState("")
+  const desc = UseForm(null)
+  const { saveBookmark, recentBookmark } = React.useContext(BookmarkContext)
+  const [debouncedUrl, setDebouncedUrl] = React.useState<string>("")
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
 
     if (url.validate()) {
@@ -43,7 +42,7 @@ const BookmarkCreate = () => {
           type="text"
           id="criar"
           placeholder="Receita de Pizza"
-          maxLength="25"
+          maxLength={25}
           required
           {...name}
         />
@@ -60,7 +59,7 @@ const BookmarkCreate = () => {
           type="text"
           id="desc"
           placeholder="Uma excelente receita de pizza"
-          maxLength="40"
+          maxLength={40}
           {...desc}
         />
         <div>
@@ -75,7 +74,7 @@ const BookmarkCreate = () => {
         <Card
           name={name.value.trim()}
           url={debouncedUrl}
-          desc={desc.value.trim() || "Descrição do bookmark"}
+          description={desc.value.trim() || "Descrição do bookmark"}
         />
       </div>
       <div className={styles.cards}>

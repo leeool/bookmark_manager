@@ -2,7 +2,7 @@ import React from "react"
 import styles from "./Card.module.scss"
 import Image from "./Image"
 
-const Card = ({ name, url, desc }) => {
+const Card = ({ name, url, description }: Bookmark) => {
   return (
     <div className={styles.card}>
       <a target={"_blank"} href={url}>
@@ -11,7 +11,7 @@ const Card = ({ name, url, desc }) => {
         </div>
         <div className={styles.cardInfo}>
           <h2>{name.length > 0 ? name : "Nome do Bookmark"}</h2>
-          {desc.length > 0 && <p>{desc}</p>}
+          {description && <p>{description}</p>}
         </div>
       </a>
     </div>

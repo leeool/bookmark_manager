@@ -6,12 +6,12 @@ import styles from "./App.module.scss"
 import "./Reset.scss"
 import "./Global.scss"
 import Feed from "./Components/Feed/Feed"
-import Bookmark from "./Components/Bookmark/Bookmark"
-import BookmarkStorage from "./BookmarkContext"
 import Menu from "./Components/Menu/Menu"
+import BookmarkStorage from "./context/BookmarkContext"
+import Bookmark from "./Components/Bookmark/Bookmark"
 
 const App = () => {
-  const [mobile, setMobile] = React.useState(null)
+  const [mobile, setMobile] = React.useState<boolean | null>(null)
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -31,7 +31,7 @@ const App = () => {
     <BookmarkStorage>
       <BrowserRouter>
         <main className={styles.app}>
-          <Menu mobile={mobile} setMobile={setMobile} />
+          <Menu mobile={mobile} />
           <div className={styles.pages}>
             <Routes>
               <Route path="/" element={<Feed />} />

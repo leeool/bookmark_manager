@@ -1,9 +1,18 @@
 import React from "react"
-import { BookmarkContext } from "../../BookmarkContext"
 import styles from "./SearchBookmark.module.scss"
-import { ReactComponent as Search } from "../../assets/images/magnifying-glass-solid.svg"
+import { BookmarkContext } from "../../context/BookmarkContext"
 
-const SearchBookmark = ({ search, setBookmark, setSearch }) => {
+interface ISearchBookmark {
+  search: string
+  setBookmark: React.Dispatch<Bookmark[]>
+  setSearch: React.Dispatch<string>
+}
+
+const SearchBookmark = ({
+  search,
+  setBookmark,
+  setSearch
+}: ISearchBookmark) => {
   const { bookmarks } = React.useContext(BookmarkContext)
 
   React.useEffect(() => {
