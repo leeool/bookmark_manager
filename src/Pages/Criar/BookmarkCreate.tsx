@@ -1,18 +1,18 @@
 import React, { FormEvent } from "react"
 import UseForm from "../../Hooks/UseForm"
-import Button from "../Form/Button"
-import Input from "../Form/Input"
-import Card from "../Helpers/Card"
-import MainTitle from "../Text/MainTitle"
+import Button from "../../Components/Form/Button"
+import Input from "../../Components/Form/Input"
+import Card from "../../Components/Helpers/Card"
+import MainTitle from "../../Components/MainTitle/MainTitle"
 import styles from "./BookmarkCreate.module.scss"
 import debounce from "lodash.debounce"
-import BookmarkList from "./BookmarkList"
-import { BookmarkContext } from "../../context/BookmarkContext"
+import BookmarkList from "../../Components/Bookmark/BookmarkList"
+import { BookmarkContext } from "../../Context/BookmarkContext"
 
 const BookmarkCreate = () => {
   const name = UseForm(null)
   const url = UseForm("url")
-  const desc = UseForm(null)
+  const description = UseForm(null)
   const { saveBookmark, recentBookmark } = React.useContext(BookmarkContext)
   const [debouncedUrl, setDebouncedUrl] = React.useState<string>("")
 
@@ -20,7 +20,7 @@ const BookmarkCreate = () => {
     e.preventDefault()
 
     if (url.validate()) {
-      saveBookmark(name.value, url.value, desc.value)
+      saveBookmark(name.value, url.value, description.value)
     }
   }
 
@@ -34,7 +34,7 @@ const BookmarkCreate = () => {
   }, [url.value])
 
   return (
-    <div className={styles.bookmarkCreate}>
+    <div className={`${styles.bookmarkCreate} feed-container`}>
       <MainTitle children={"Crie um Bookmark"} />
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input
@@ -60,7 +60,7 @@ const BookmarkCreate = () => {
           id="desc"
           placeholder="Uma excelente receita de pizza"
           maxLength={40}
-          {...desc}
+          {...description}
         />
         <div>
           <label htmlFor="file" className={styles.imageUpload}>
@@ -74,7 +74,7 @@ const BookmarkCreate = () => {
         <Card
           name={name.value.trim()}
           url={debouncedUrl}
-          description={desc.value.trim() || "Descrição do bookmark"}
+          description={description.value.trim() || "Descrição do bookmark"}
         />
       </div>
       <div className={styles.cards}>

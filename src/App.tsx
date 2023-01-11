@@ -5,10 +5,10 @@ import { Route } from "react-router-dom"
 import styles from "./App.module.scss"
 import "./Reset.scss"
 import "./Global.scss"
-import Feed from "./Components/Feed/Feed"
 import Menu from "./Components/Menu/Menu"
-import BookmarkStorage from "./context/BookmarkContext"
-import Bookmark from "./Components/Bookmark/Bookmark"
+import BookmarkStorage from "./Context/BookmarkContext"
+import Feed from "./Pages/Inicio/Feed"
+import BookmarkCreate from "./Pages/Criar/BookmarkCreate"
 
 const App = () => {
   const [mobile, setMobile] = React.useState<boolean | null>(null)
@@ -35,7 +35,7 @@ const App = () => {
           <div className={styles.pages}>
             <Routes>
               <Route path="/" element={<Feed />} />
-              <Route path="/criar" element={<Bookmark />} />
+              <Route path="/criar" element={<BookmarkCreate />} />
             </Routes>
           </div>
         </main>

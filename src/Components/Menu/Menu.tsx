@@ -1,12 +1,12 @@
 import React from "react"
 import styles from "./Menu.module.scss"
 import { NavLink } from "react-router-dom"
-import { ReactComponent as Plus } from "../../assets/images/plus-solid.svg"
-import { ReactComponent as Mark } from "../../assets/images/bookmark-solid.svg"
-import { ReactComponent as Home } from "../../assets/images/house-solid.svg"
-import { ReactComponent as Settings } from "../../assets/images/gear-solid.svg"
+import { ReactComponent as PlusSVG } from "../../assets/images/plus-solid.svg"
+import { ReactComponent as MarkSVG } from "../../assets/images/bookmark-solid.svg"
+import { ReactComponent as HomeSVG } from "../../assets/images/house-solid.svg"
+import { ReactComponent as SettingsSVG } from "../../assets/images/gear-solid.svg"
 import { useLocation } from "react-router-dom"
-import MainTitle from "../Text/MainTitle"
+import MainTitle from "../MainTitle/MainTitle"
 
 const Menu = ({ mobile }: { mobile: boolean | null }) => {
   const [mobileMenu, setMobileMenu] = React.useState(false)
@@ -38,21 +38,21 @@ const Menu = ({ mobile }: { mobile: boolean | null }) => {
           {!mobile && <MainTitle children={"Bookmark Handle"} />}
           <div className={styles.menu1}>
             <NavLink end to={"/"}>
-              <Home />
+              <HomeSVG />
               <p children={"Início"} />
             </NavLink>
             <NavLink to={"/editar"}>
-              <Mark />
+              <MarkSVG />
               <p children={"Meus Bookmarks"} />
             </NavLink>
             <NavLink to={"/criar"}>
-              <Plus />
+              <PlusSVG />
               <p children={"Criar Bookmark"} />
             </NavLink>
           </div>
           <div className={styles.menu2}>
             <NavLink to={"/config"}>
-              <Settings />
+              <SettingsSVG />
               <p children={"Configurações"} />
             </NavLink>
           </div>

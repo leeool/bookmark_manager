@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./SearchBookmark.module.scss"
-import { BookmarkContext } from "../../context/BookmarkContext"
+import { BookmarkContext } from "../../Context/BookmarkContext"
 
 interface ISearchBookmark {
   search: string
