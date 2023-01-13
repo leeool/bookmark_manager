@@ -1,0 +1,30 @@
+input[type="file"] {
+  display: none;
+}
+
+.imageUpload {
+  font-size: 1.4rem;
+  padding: 1rem;
+  color: rgba(0, 0, 0, 0.5);
+  border: 0.3rem var(--gelo) dashed;
+  cursor: pointer;
+  border-radius: 0.8rem;
+
+  &:hover {
+    border-color: var(--gelo-escuro);
+  }
+
+  &.success {
+    border-color: rgb(100, 211, 78);
+    color: rgb(100, 211, 78);
+  }
+
+  &.erro {
+    border-color: red;
+    color: red;
+  }
+
+  p {
+    color: currentColor;
+  }
+}

@@ -35,6 +35,20 @@
     &:hover {
       border-color: var(--gelo-escuro);
     }
+
+    &.success {
+      border-color: rgb(100, 211, 78);
+      color: rgb(100, 211, 78);
+    }
+
+    &.erro {
+      border-color: red;
+      color: red;
+    }
+
+    p {
+      color: currentColor;
+    }
   }
 
   button {

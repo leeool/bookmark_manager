@@ -1,7 +1,12 @@
 import React, { ReactNode } from "react"
 
 interface IBookmarkContext {
-  saveBookmark: (name: string, url: string, description: string) => void
+  saveBookmark: (
+    name: string,
+    url: string,
+    description: string,
+    image: string | null
+  ) => void
   bookmarks: Bookmark[]
   recentBookmark: Bookmark[]
 }
@@ -18,11 +23,20 @@ export const BookmarkStorage = ({ children }: { children: ReactNode }) => {
     []
   )
 
-  const saveBookmark = (name: string, url: string, description: string) => {
-    if (name && url) {
-      setBookmarks((prev) => [{ name, url, description }, ...prev])
-      setRecentBookmark((prev) => [{ name, url, description }, ...prev])
+  const saveBookmark = (
+    name: string,
+    url: string,
+    description: string,
+    image: string | null
+  ) => {
+    const bookmarkData = {
+      name: name.trim(),
+      url: url.trim(),
+      description: description.trim(),
+      image: image
     }
+    setBookmarks((prev) => [{ ...bookmarkData }, ...prev])
+    setRecentBookmark((prev) => [{ ...bookmarkData }, ...prev])
   }
 
   React.useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react"
+import React from "react"
 import UseForm from "../../Hooks/UseForm"
 import Button from "../../Components/Form/Button"
 import Input from "../../Components/Form/Input"
@@ -8,19 +8,29 @@ import styles from "./BookmarkCreate.module.scss"
 import debounce from "lodash.debounce"
 import BookmarkList from "../../Components/Bookmark/BookmarkList"
 import { BookmarkContext } from "../../Context/BookmarkContext"
+import UseImage from "../../Hooks/UseImage"
+import InputFile from "../../Components/Form/InputFile"
 
 const BookmarkCreate = () => {
-  const name = UseForm(null)
-  const url = UseForm("url")
-  const description = UseForm(null)
   const { saveBookmark, recentBookmark } = React.useContext(BookmarkContext)
   const [debouncedUrl, setDebouncedUrl] = React.useState<string>("")
 
-  const handleSubmit = (e: FormEvent) => {
+  // Hooks
+  const name = UseForm(null)
+  const url = UseForm("url")
+  const description = UseForm(null)
+  const file = UseImage()
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (url.validate()) {
-      saveBookmark(name.value, url.value, description.value)
+    if (url.validate() && name.value) {
+      saveBookmark(
+        name.value,
+        url.value,
+        description.value,
+        file.data ? file.data.fileData : null
+      )
     }
   }
 
@@ -62,21 +72,29 @@ const BookmarkCreate = () => {
           maxLength={40}
           {...description}
         />
-        <div>
-          <label htmlFor="file" className={styles.imageUpload}>
-            Selecione uma imagem (opcional)
-            <input type="file" id="file" hidden />
-          </label>
-        </div>
+        <InputFile
+          id="file1"
+          onChange={file.onChange}
+          accept={"image/*"}
+          data={file.data}
+          error={file.erro}
+        />
         <Button children={"Salvar"} />
       </form>
+
       <div className={styles.cardPreview}>
         <Card
-          name={name.value.trim()}
+          name={name.value.trim() ? name.value.trim() : "Nome do bookmark"}
           url={debouncedUrl}
-          description={description.value.trim() || "Descrição do bookmark"}
+          image={file.data ? file.data.fileData : null}
+          description={
+            description.value.trim()
+              ? description.value.trim()
+              : "Descrição do bookmark"
+          }
         />
       </div>
+
       <div className={styles.cards}>
         <BookmarkList bookmarks={recentBookmark} />
       </div>

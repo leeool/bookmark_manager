@@ -2,5 +2,5 @@ interface Bookmark {
   name: string
   url: string
   description?: string
-  image?: File
+  image: string | ArrayBuffer | null
 }
