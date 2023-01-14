@@ -12,7 +12,7 @@ interface Types {
 const types: Types = {
   url: {
     regex:
-      /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
+      /(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
     message: "Utilize um link válido"
   }
 }
@@ -34,8 +34,6 @@ const UseForm = (type: string | null) => {
       return true
     }
   }
-
-  type ChangeEventType = React.ChangeEvent<HTMLInputElement>
 
   const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     if (target instanceof HTMLInputElement) {
