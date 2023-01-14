@@ -24,8 +24,8 @@ const Menu = ({ mobile }: { mobile: boolean | null }) => {
     <div>
       {mobile && (
         <div className={`${styles.mobileHeader}`}>
-          <button className={styles.btn} onClick={handleClick}></button>
           <MainTitle children={"Bookmark Handle"} />
+          <button className={styles.btn} onClick={handleClick}></button>
         </div>
       )}
 

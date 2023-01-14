@@ -20,7 +20,6 @@ const MeusBookmarks = () => {
           setBookmark={setSearchBookmark}
         />
       </div>
-
       {bookmarks && <BookmarkList bookmarks={searchBookmark} />}
     </div>
   )
