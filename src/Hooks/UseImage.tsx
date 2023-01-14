@@ -10,27 +10,31 @@ const UseImage = () => {
   const [erro, setErro] = React.useState<string | null>(null)
 
   const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
-    if (
-      target.files &&
-      target.files[0] &&
-      target.files[0].type.split("/")[0] === "image" &&
-      target.files[0].size <= 5000000
-    ) {
-      const reader = new FileReader()
-      const imageURL = target.files[0]
+    if (target.files && target.files[0]) {
+      try {
+        if (target.files[0].type.split("/")[0] !== "image")
+          throw new Error("Tipo de arquivo não suportado.")
+        if (target.files[0].size > 5000000)
+          throw new Error(
+            `O arquivo ${target.files[0].name} é muito grande. Max: 5MB`
+          )
 
-      reader.addEventListener("load", () => {
-        setData({
-          fileData: String(reader.result),
-          fileName: target.files![0].name
+        const reader = new FileReader()
+        const imageURL = target.files[0]
+
+        reader.addEventListener("load", () => {
+          setData({
+            fileData: String(reader.result),
+            fileName: target.files![0].name
+          })
+          setErro(null)
         })
-        setErro(null)
-      })
 
-      reader.readAsDataURL(imageURL)
-    } else {
-      setData(null)
-      setErro("imagem inválida")
+        reader.readAsDataURL(imageURL)
+      } catch (e) {
+        setData(null)
+        if (e instanceof Error) setErro(e.message)
+      }
     }
   }
 

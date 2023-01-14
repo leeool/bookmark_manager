@@ -1,11 +1,11 @@
 import React from "react"
-import styles from "./Feed.module.scss"
+import styles from "./MeusBookmarks.module.scss"
 import MainTitle from "../../Components/MainTitle/MainTitle"
 import SearchBookmark from "../../Components/Helpers/SearchBookmark"
 import BookmarkList from "../../Components/Bookmark/BookmarkList"
 import { BookmarkContext } from "../../Context/BookmarkContext"
 
-const Feed = () => {
+const MeusBookmarks = () => {
   const [search, setSearch] = React.useState("")
   const { bookmarks } = React.useContext(BookmarkContext)
   const [searchBookmark, setSearchBookmark] = React.useState(bookmarks)
@@ -13,7 +13,7 @@ const Feed = () => {
   return (
     <div className={`${"feed-container"} ${styles.feed}`}>
       <div className={styles.feedHeader}>
-        <MainTitle children={"Início"} />
+        <MainTitle children={"Biblioteca"} />
         <SearchBookmark
           search={search}
           setSearch={setSearch}
@@ -26,4 +26,4 @@ const Feed = () => {
   )
 }
 
-export default Feed
+export default MeusBookmarks

@@ -65,7 +65,7 @@ const BookmarkCreate = () => {
           {...url}
         />
         <Input
-          label={"Descrição (opcional)"}
+          label={"Descrição"}
           type="text"
           id="desc"
           placeholder="Uma excelente receita de pizza"

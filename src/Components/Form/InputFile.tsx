@@ -28,7 +28,7 @@ const InputFile = ({ id, onChange, accept, error, data }: IInputFile) => {
         {error ? (
           <Error error={error}></Error>
         ) : (
-          <p>{data ? data.fileName : "Selecione uma imagem (opcional)"}</p>
+          <p>{data ? data.fileName : "Selecione uma imagem"}</p>
         )}
         <input type="file" id={id} hidden onChange={onChange} accept={accept} />
       </label>

@@ -7,8 +7,9 @@ import "./Reset.scss"
 import "./Global.scss"
 import Menu from "./Components/Menu/Menu"
 import BookmarkStorage from "./Context/BookmarkContext"
-import Feed from "./Pages/Inicio/Feed"
 import BookmarkCreate from "./Pages/Criar/BookmarkCreate"
+import MeusBookmarks from "./Pages/Biblioteca/MeusBookmarks"
+import Inicio from "./Pages/Inicio/Inicio"
 
 const App = () => {
   const [mobile, setMobile] = React.useState<boolean | null>(null)
@@ -34,7 +35,8 @@ const App = () => {
           <Menu mobile={mobile} />
           <div className={styles.pages}>
             <Routes>
-              <Route path="/" element={<Feed />} />
+              <Route path="/" element={<Inicio />} />
+              <Route path="/biblioteca" element={<MeusBookmarks />} />
               <Route path="/criar" element={<BookmarkCreate />} />
             </Routes>
           </div>

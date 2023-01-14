@@ -41,9 +41,9 @@ const Menu = ({ mobile }: { mobile: boolean | null }) => {
               <HomeSVG />
               <p children={"Início"} />
             </NavLink>
-            <NavLink to={"/editar"}>
+            <NavLink to={"/biblioteca"}>
               <MarkSVG />
-              <p children={"Meus Bookmarks"} />
+              <p children={"Biblioteca"} />
             </NavLink>
             <NavLink to={"/criar"}>
               <PlusSVG />
