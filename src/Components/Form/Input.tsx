@@ -16,7 +16,7 @@ interface Input {
   error: string | null
   placeholder: string
   onBlur: () => boolean
-  onChange: ({ target }: { target: EventTarget & Target }) => void
+  onChange: ({ target }: React.ChangeEvent<HTMLInputElement>) => void
   validate: () => boolean
   // [value: string]: any
 }

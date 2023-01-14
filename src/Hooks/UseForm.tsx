@@ -35,12 +35,14 @@ const UseForm = (type: string | null) => {
     }
   }
 
-  type Target = HTMLInputElement | HTMLTextAreaElement
+  type ChangeEventType = React.ChangeEvent<HTMLInputElement>
 
-  const onChange = ({ target }: { target: EventTarget & Target }) => {
-    if (error) validate(target.value)
-    setValue(target.value)
-    setError(null)
+  const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+    if (target instanceof HTMLInputElement) {
+      if (error) validate(target.value)
+      setValue(target.value)
+      setError(null)
+    }
   }
 
   return {
