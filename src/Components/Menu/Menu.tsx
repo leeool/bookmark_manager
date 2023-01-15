@@ -5,11 +5,15 @@ import { ReactComponent as PlusSVG } from "../../assets/images/plus-solid.svg"
 import { ReactComponent as MarkSVG } from "../../assets/images/bookmark-solid.svg"
 import { ReactComponent as HomeSVG } from "../../assets/images/house-solid.svg"
 import { ReactComponent as SettingsSVG } from "../../assets/images/gear-solid.svg"
+import { ReactComponent as SetaDireita } from "../../assets/images/seta-direta.svg"
+import { ReactComponent as SetaEsquerda } from "../../assets/images/seta-esquerda.svg"
 import { useLocation } from "react-router-dom"
 import MainTitle from "../MainTitle/MainTitle"
+import Button from "../Form/Button"
 
 const Menu = ({ mobile }: { mobile: boolean | null }) => {
   const [mobileMenu, setMobileMenu] = React.useState(false)
+  const [toggleMenu, setToggleMenu] = React.useState(true)
   const location = useLocation()
 
   const handleClick = () => {
@@ -20,8 +24,12 @@ const Menu = ({ mobile }: { mobile: boolean | null }) => {
     setMobileMenu(false)
   }, [location])
 
+  const handleToggleMenu = () => {
+    setToggleMenu((prev) => !prev)
+  }
+
   return (
-    <div>
+    <div className={styles.menuContainer}>
       {mobile && (
         <div className={`${styles.mobileHeader}`}>
           <MainTitle children={"Bookmark Handle"} />
@@ -32,7 +40,7 @@ const Menu = ({ mobile }: { mobile: boolean | null }) => {
       <section
         className={` ${mobile ? styles.mobileMenu : styles.menu} ${
           mobileMenu && styles.mobileMenuActive
-        }`}
+        } ${!toggleMenu && styles.closed}`}
       >
         <div className={styles.menuNav}>
           {!mobile && <MainTitle children={"Bookmark Handle"} />}
@@ -58,6 +66,14 @@ const Menu = ({ mobile }: { mobile: boolean | null }) => {
           </div>
         </div>
       </section>
+      {!mobile && (
+        <div className={styles.button}>
+          <Button
+            children={toggleMenu ? <SetaEsquerda /> : <SetaDireita />}
+            onClick={handleToggleMenu}
+          />
+        </div>
+      )}
     </div>
   )
 }

@@ -32,6 +32,26 @@
   }
 }
 
+.menuContainer {
+  position: relative;
+
+  .button {
+    position: absolute;
+    top: 1rem;
+    right: -5rem;
+
+    button {
+      display: flex;
+      align-items: center;
+      padding: 0.4rem 0.8rem;
+    }
+
+    svg {
+      width: 2rem;
+    }
+  }
+}
+
 .mobileHeader {
   padding: 0.8rem 1.6rem;
   display: flex;
@@ -85,16 +105,29 @@
   &.mobileMenuActive .menuNav {
     right: 0;
   }
+
+  .button {
+    display: none;
+  }
 }
 
 .menu {
   background-color: var(--gelo);
   box-shadow: 0.3rem 0px 0px 0px var(--gelo-escuro-plus);
+  position: relative;
+  transition: 0.2s ease;
+
+  &.closed {
+    translate: -100%;
+    position: absolute;
+    visibility: none;
+  }
 
   h1 {
     font-size: 3.6rem;
     text-align: center;
     margin: 1.6rem 0;
+    padding: 0 1.6rem;
   }
   .menuNav {
     display: flex;
