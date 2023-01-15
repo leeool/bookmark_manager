@@ -10,7 +10,7 @@ const Card = ({ name, url, description, image }: Bookmark) => {
       <a target={"_blank"} href={url}>
         <div className={styles.img}>
           {image ? (
-            <img src={String(image)} />
+            <img src={String(image.fileData)} />
           ) : (
             <img src={url && link + url} />
           )}

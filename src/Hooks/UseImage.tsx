@@ -1,10 +1,5 @@
 import React from "react"
 
-interface IUseImage {
-  fileData: string
-  fileName: string
-}
-
 const UseImage = () => {
   const [data, setData] = React.useState<IUseImage | null>(null)
   const [erro, setErro] = React.useState<string | null>(null)

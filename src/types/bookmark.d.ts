@@ -2,5 +2,10 @@ interface Bookmark {
   name: string
   url: string
   description?: string
-  image: string | ArrayBuffer | null
+  image: IUseImage | null
+}
+
+interface IUseImage {
+  fileData: string
+  fileName: string
 }

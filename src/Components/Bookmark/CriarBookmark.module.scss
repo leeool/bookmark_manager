@@ -1,12 +1,5 @@
 .bookmarkCreate {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3.2rem;
-
-  h1 {
-    grid-column: 1;
-    margin-bottom: 1.8rem;
-  }
 
   .form {
     grid-column: 1;
@@ -53,13 +46,5 @@
 
   button {
     margin-top: 1.6rem;
-  }
-
-  @media screen and (width <= 1000px) {
-    grid-template-columns: 1fr;
-
-    .cardPreview {
-      grid-row: 2;
-    }
   }
 }

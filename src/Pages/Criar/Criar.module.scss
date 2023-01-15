@@ -1,0 +1,16 @@
+.criar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+  margin-bottom: 5rem;
+
+  @media screen and (width <= 1000px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.criarContainer {
+  h1 {
+    margin-bottom: 3rem;
+  }
+}

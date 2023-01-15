@@ -7,7 +7,7 @@ import "./Reset.scss"
 import "./Global.scss"
 import Menu from "./Components/Menu/Menu"
 import BookmarkStorage from "./Context/BookmarkContext"
-import BookmarkCreate from "./Pages/Criar/BookmarkCreate"
+import BookmarkCreate from "./Pages/Criar/Criar"
 import MeusBookmarks from "./Pages/Biblioteca/MeusBookmarks"
 import Inicio from "./Pages/Inicio/Inicio"
 

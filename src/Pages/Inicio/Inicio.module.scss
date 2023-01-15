@@ -1,3 +1,39 @@
 .inicio {
-  background-color: transparent;
+  position: relative;
+  min-height: 100vh;
+}
+
+.introducao {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: grid;
+  width: 100%;
+
+  h2 {
+    font-size: 6.2rem;
+  }
+
+  p {
+    font-size: 2.4rem;
+    color: #aaa;
+    margin-bottom: 2.6rem;
+  }
+
+  button {
+    justify-self: center;
+    width: 15rem;
+  }
+
+  @media (width <= 1000px) {
+    h2 {
+      font-size: 5.2rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
 }

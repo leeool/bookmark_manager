@@ -1,9 +1,15 @@
 import React, { ReactNode } from "react"
 import styles from "./Button.module.scss"
 
-const Button = ({ children, ...props }: { children: ReactNode }) => {
+const Button = ({
+  children,
+  onClick
+}: {
+  children: ReactNode
+  onClick?: React.MouseEventHandler
+}) => {
   return (
-    <button {...props} className={styles.button}>
+    <button onClick={onClick} className={styles.button}>
       {children}
     </button>
   )

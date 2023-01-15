@@ -5,7 +5,7 @@ interface IBookmarkContext {
     name: string,
     url: string,
     description: string,
-    image: string | null
+    image: IUseImage | null
   ) => void
   bookmarks: Bookmark[]
   recentBookmark: Bookmark[]
@@ -27,7 +27,7 @@ export const BookmarkStorage = ({ children }: { children: ReactNode }) => {
     name: string,
     url: string,
     description: string,
-    image: string | null
+    image: IUseImage | null
   ) => {
     const bookmarkData = {
       name: name.trim(),
